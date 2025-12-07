@@ -1,15 +1,41 @@
 {
-  "name": "claudefy",
-  "version": "0.1.0",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "name": "ai-tao",
+  "version": "0.2.0",
+  "description": "Setup and maintain CLAUDE.md files for your projects",
+  "type": "module",
+  "bin": {
+    "ai-tao": "./dist/index.js"
   },
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "bun build src/index.ts --outdir dist --target node",
+    "test": "bun test",
+    "ok": "bun test && bun run build",
+    "prepublishOnly": "bun run build",
+    "prepare": "husky",
+    "pre-commit": "bun ok"
   },
-  "keywords": [],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "documentation",
+    "cli"
+  ],
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "^1.2.3",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ftzi/ai-tao.git"
+  }
 }
